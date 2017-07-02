@@ -1,7 +1,8 @@
-#src=https://www.reddit.com/r/dailyprogrammer/comments/69y21t/20170508_challenge_314_easy_concatenated_integers/?st=j4lrpdmz&sh=f46d2d86
-#Concatenated Integers challenge
-#decided to do it recursively
-#personal notes:much harder than I thought it was going to be. Challenge unfairly labeled "Easy".
+#!/usr/bin/env python
+'''src=https://www.reddit.com/r/dailyprogrammer/comments/69y21t/20170508_challenge_314_easy_concatenated_integers/?st=j4lrpdmz&sh=f46d2d86
+Concatenated Integers challenge
+decided to do it recursively
+personal notes:much harder than I thought it was going to be. Challenge unfairly labeled "Easy".'''
 
 def concatenateRecursively(integers):
 	return smallestNumber(integers.split()),largestNumber(integers.split())
