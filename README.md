@@ -1,2 +1,2 @@
 # challenges
-collection of programs I made from r/dailyprogrammer
+Collection of challenges I complete from the web. Source for challenge in the file themselves.
