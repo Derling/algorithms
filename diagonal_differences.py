@@ -19,8 +19,8 @@ if __name__ == '__main__':
 	#input for n x n matrix
 	n = int(input())
 	matrix = []
+	print('Please enter the elements in the matrix as string using (\' \') :')
 	for i in range(n):
-		print('Please enter the elements in the matrixt as string using ' ':')
 		temp = [int(temp) for temp in input().split(' ')]
 		matrix.append(temp)
 	print('Diagonal Differences: ' , diagonalDiff(matrix))
