@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/env python
 '''HackerRank Challenge
 Monica wants to buy exactly one keyboard and one USB drive from her favorite electronics store. 
 The store sells  different brands of keyboards and  different brands of USB drives. 
