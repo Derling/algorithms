@@ -4,7 +4,6 @@ Monica wants to buy exactly one keyboard and one USB drive from her favorite ele
 The store sells  different brands of keyboards and  different brands of USB drives. 
 Monica has exactly  dollars to spend, and she wants to spend as much of it as possible 
 (i.e., the total cost of her purchase must be maximal).
-
 Given the price lists for the store's keyboards and USB drives, 
 find and print the amount money Monica will spend. 
 If she doesn't have enough money to buy one keyboard and one USB drive, 
