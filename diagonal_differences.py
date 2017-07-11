@@ -2,7 +2,7 @@
 '''
 HackerRank Challenge I found useful
 Differnces of diagonals in a n x n matrix
-completed 7/3/17
+7/3/17 challenge.
 '''
 
 
