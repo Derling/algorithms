@@ -1,4 +1,4 @@
-'''
+''''
 HackerRank Challenge
 Beautiful days are described as days that divide evenly into an integer. 
 The day must first be subtracted by its reverse ie 21 and 12.
@@ -7,7 +7,7 @@ Input is one line describing i,j,k each seperated by a space not commas.
 The set is the numbers between i and j, inclusive. 
 The output is the number of "Beautiful Days".
 7/6/17 challenge.
-'''
+''''
 
 def main():
     i,j,k = getInput()
