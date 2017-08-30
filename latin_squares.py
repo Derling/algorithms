@@ -21,7 +21,7 @@ def latin_squares(n,arr):
             # once, its not a latin square also if a number appears only on one
             # row then it is not a latin square. 
             if (matrix[i].count(matrix[i][j]) > 1 or 
-                    matrix[i] not in base_numbers):
+                    matrix[i][j] not in base_numbers):
                 return False
             # check if the first number of our current row occurs more than
             # once in the first column, if it does its not a latin square 
