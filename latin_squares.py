@@ -14,7 +14,7 @@ def latin_squares(n,arr):
     matrix = []
     # create n x n grid using arr from left to right
     for i in range(n):
-        matrix.append(arr[i * n : n * (i + 1)])
+        matrix.append(arr[i * n : n * (i + 1)]) 
     for i in range(len(matrix)):
         for j in range(len(matrix)):
             # check how many times a number appears in a row, if its more than
@@ -24,7 +24,7 @@ def latin_squares(n,arr):
                     matrix[i] not in base_numbers):
                 return False
             # check if the first number of our current row occurs more than
-            # once, if it does its not a latin square 
+            # once in the first column, if it does its not a latin square 
             if matrix[i][0] == matrix[j][0] and j != i: 
                 return False                           
     return True
