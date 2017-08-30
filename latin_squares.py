@@ -10,7 +10,7 @@ r/dailyprogrammer [7-08-21] Challenged #328 [Easy] Latin Squares
 """
 
 def latin_squares(n,arr):
-    base_numbers = arr[:n]
+    base_numbers = arr[:n] # arr of base numbers all rows should have
     matrix = []
     # create n x n grid using arr from left to right
     for i in range(n):
