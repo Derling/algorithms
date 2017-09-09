@@ -5,6 +5,7 @@ Created on Thu Sep  7 16:45:56 2017
 Linear Algebra challenge
 Reducing a linear system to its echelon form represented in a matrix.
 Personal Challenge from school.
+*** Not complete *** 
 
 @author: Derling
 """
