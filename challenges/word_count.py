@@ -4,6 +4,8 @@ Created on Wed Sep  6 20:53:46 2017
 
 Mock Interview question, completed on own time for self improvement.
 
+Also, used python 3.6 features to familiarize myself with type hinting
+
 @author: Derling
 """
 
