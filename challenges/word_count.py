@@ -18,7 +18,10 @@ def count_words(word_arr: list) -> dict:
     ''' count the occurences of a word in a paragraph '''
     count: dict = {}
     for word in word_arr:
-        count[word] = count.get(word, 0) + 1
+        if word[-1] == '.':
+            count[word[:-1]] = count.get(word[:-1], 0) + 1
+        else:
+            count[word] = count.get(word, 0) + 1
     return count
 
 def check_punctuation(word: str) -> str:
