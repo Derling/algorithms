@@ -34,11 +34,23 @@ def sum_of_10_pairs(integers):# procedual
     return pairs
 
 def sum_of_10_pairs_2(integers):# functional
+    # 2.Find pairs in an integer array whose sum is equal to 10
     return set((i, 10 - i) for i in integers if 10 -i in integers)
 
 def rotated_arrays_1(first, second): # functional
     # 3. given 2 arrays find out if one is the rotated version of the other
     return True if sorted(first) == sorted(second) else False
+
+def rotated_arrays_2(first, second): # procedual
+    # 3. given 2 arrays find out if one is the rotated version of the other'
+    if len(first) != len(second): # not the same number of elements
+        return False
+    for i in first:
+        if i in second: # if the integer is in the second array do nothing
+            continue
+        else: # if the integer is not in the second array return false
+            return False
+    return True # if all numbers are in both arrays, return true
 
 def fibonacci_recursive(n):
     # 4. Fibonacci sequence
@@ -56,16 +68,7 @@ def fibonacci(n):
         a,b = b,a+b
     return a
 
-def rotated_arrays_2(first, second): # procedual
-    # 3. given 2 arrays find out if one is the rotated version of the other'
-    if len(first) != len(second): # not the same number of elements
-        return False
-    for i in first:
-        if i in second: # if the integer is in the second array do nothing
-            continue
-        else: # if the integer is not in the second array return false
-            return False
-    return True # if all numbers are in both arrays, return true
+
 
 def element_only_once(array):
     # 5. Find the only element in an array that only occurs once
