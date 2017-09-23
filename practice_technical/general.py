@@ -189,6 +189,4 @@ def multiplication_without_x_v3(op1,op2):
     return list(itertools.accumulate([op1 for i in range(op2)]))[-1]
 
 if __name__ == '__main__':
-    print(multiplication_without_x(3, 123))
-    print(multiplication_without_x_v2(3, 123))
-    print(multiplication_without_x_v3(3, 123))
+    pass
