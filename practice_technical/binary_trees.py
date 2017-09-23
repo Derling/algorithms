@@ -94,6 +94,89 @@ class BinarySearchTree():
     def get_max(self):
         if self.root: # if tree not empty get maximum value in tree
             return self.root.get_max()
+        
+def breath_first_search(node):
+    # 2. print a tree using BFS and DFS
+    queue = [node]
+    while queue:
+        current = queue[0]
+        if current.left:
+            queue.append(current.left)
+        if current.right:
+            queue.append(current.right)
+        print(current.value, end=' ')
+        queue.pop(0)
+
+def inorder_dfs(node):
+    # in order depth first traversal - left, root, right
+    if node:
+        inorder_dfs(node.left)
+        print(node.value, end=' ')
+        inorder_dfs(node.right)
+        
+def preorder_dfs(node):
+    # pre order depth first traversal - root, left, right
+    if node:
+        print(node.value, end=' ')
+        preorder_dfs(node.left)
+        preorder_dfs(node.right)
+        
+def postorder_dfs(node):
+    # post order depth first traversal - left, right, root
+    if node:
+        postorder_dfs(node.left)
+        postorder_dfs(node.right)
+        print(node.value, end=' ')
+
+def determine_bst(node):
+    # 3. determine if a tree is a binary search tree
+    if not node:
+        return True
+    if node.left and node.left.get_min() > node.value:
+        # value of left child greater than current node
+        return False
+    if node.right and node.right.get_max() < node.value:
+        # value of right child lesser than current node
+        return False
+    if not determine_bst(node.left) or not determine_bst(node.right):
+        # sub trees are not binary search trees
+        return False
+    return True
+
+def determine_bst_efficient(node):
+    # 3. determine if a tree is a binary search tree
+    def is_bst(node, min_i, max_i):
+        # set a range for trees, if values of node
+        if not node:
+            return True
+        if node.value < min_i or node.value > max_i:
+            # node value not in range
+            return False
+        return (is_bst(node.left, min_i, node.value - 1) and
+                is_bst(node.right, node.value + 1, max_i))
+    return is_bst(node, node.get_min(), node.get_max())
+
+def smallest_element(node):
+    # 4. find the smallest element in a BST
+    return node.get_min()
+
+def determine_sum_tree(node):
+    # 6. determine if a tree is a sum tree
+    left_side, right_side = 0
+    if not node or (not node.left and not node.right):
+        return 1
+    ls = sum_of_sub(node.left)
+    rs = sum_of_sub(node.right)
+    if (node.value == ls + rs) and (sum_of_sub(node.left) and
+        sum_of_sub(node.right) != 0):
+        return 1
+    return 0
+
+def sum_of_sub(node):
+    # question 6 helper method
+    if not node:
+        return 0
+    return sum_of_sub(node.left) + node.value + sum_of_sub(node.right)
 
 if __name__ == '__main__':
     pass
