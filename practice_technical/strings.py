@@ -144,5 +144,4 @@ def permutations(string):
     return nextList
 
 if __name__=='__main__':
-    print(len(find_all_permutations('minim')))
-    print(len(permutations('minim')))
+    pass
