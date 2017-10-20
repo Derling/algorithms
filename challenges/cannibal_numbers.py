@@ -40,9 +40,13 @@ def cannibals(int_set, query): # O(log n)
 if __name__ == '__main__':
     int_set = list(map(int, input('Enter the sacrifices:\n').split()))
     queries = list(map(int, input('Enter the queries:\n').split()))
-    results = []
-    test = []
+    results = [[], []]
+
     for c in queries:
-        results.append(get_cannibals(int_set.copy(), c))
-        test.append(cannibals(int_set.copy(), c))
-    print(results, test)
+        results[0].append(get_cannibals(int_set.copy(), c))
+        results[1].append(cannibals(int_set.copy(), c))
+
+    print(
+    'For the queries of', queries, 'the results were', results[0],
+    'using O(n) function and', results[1], 'using O(log n) function'
+    )
