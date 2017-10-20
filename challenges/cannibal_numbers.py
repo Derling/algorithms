@@ -10,7 +10,7 @@ src: https://www.reddit.com/r/dailyprogrammer/comments/76qk58/20171016_challenge
 
 """
 
-def get_cannibals(int_set, query): # O(n) speed
+def get_cannibals(int_set, query):
     count = 0
     highest = max(int_set)
     while highest >= query:
@@ -25,7 +25,7 @@ def get_cannibals(int_set, query): # O(n) speed
             int_set.remove(max(int_set))
     return count
 
-def cannibals(int_set, query): # O(log n)
+def cannibals(int_set, query):
     int_set = sorted(int_set)
     count = 0
     while len(int_set) > 1:
@@ -46,7 +46,8 @@ if __name__ == '__main__':
         results[0].append(get_cannibals(int_set.copy(), c))
         results[1].append(cannibals(int_set.copy(), c))
 
-    print(
-    'For the queries of', queries, 'the results were', results[0],
-    'using O(n) function and', results[1], 'using O(log n) function'
-    )
+    if results[0] == results[1]: # chekcing the integrity of both functions
+        print('For the quieres of', queries, 'using the integers', int_set,
+              ', the results were,', results[0])
+    else:
+        print('error with functions')
