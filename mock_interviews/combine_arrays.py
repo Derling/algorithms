@@ -57,7 +57,7 @@ def combine_uniques(x, y):
 				combination.append(x[i])
 	return combination
 
-if __name__ == '__main__': # script uses python 3.6 interpreter 
+if __name__ == '__main__': # script uses python 3.6 syntax 
 	y = ["dim", "lit", "pop", "extra", "..."]
 	x = ["min", "lit", "pop", "soap", "plore", "lore", "extra", "extra"]
 	print(f'normal combination = {combine(x,y)}', end='\n\n')
