@@ -5,12 +5,12 @@
 
 src = https://www.reddit.com/r/dailyprogrammer/comments/6yep7x/20170906_challenge_330_intermediate_check_writer/
 
-Given a dollar amount between 0.00 and 999,999.00, create a program that 
-will provide a worded representation of a dollar amount on a check.
+Given a dollar NUM_TO_STR between 0.00 and 999,999.00, create a program that 
+will provide a worded representation of a dollar NUM_TO_STR on a check.
 
 '''
 
-numbers = { # map for numerical values
+NUM_TO_STR = { # map for numerical values
 	0: '',
 	1: 'one',
 	2: 'two',
@@ -48,47 +48,47 @@ def write_check(dollars, cents):
 		thousands = str(int(dollars)// 1000) # get the thousands places
 		hundreds = str(int(dollars[len(dollars) - 3: len(dollars)])) # hundreds
 		if len(thousands) == 3: # at least 100 thousand 
-			check += numbers[int(thousands[0])] + ' hundred '
+			check += NUM_TO_STR[int(thousands[0])] + ' hundred '
 			if int(thousands[1:]) > 19: # ten and ones thousand places
-				check += numbers[int(thousands[1:])//10 * 10] + ' ' \
-					+ numbers[int(thousands[2])] + ' thousand, '
+				check += NUM_TO_STR[int(thousands[1:])//10 * 10] + ' ' \
+					+ NUM_TO_STR[int(thousands[2])] + ' thousand, '
 			else:
-				check += numbers[int(thousands[1:])] + ' thousand, '
+				check += NUM_TO_STR[int(thousands[1:])] + ' thousand, '
 
 		elif len(thousands) == 2: # at least 10 thousand
 			if int(thousands) > 19:
-				check += numbers[int(thousands)//10 * 10] + ' ' \
-					+ numbers[int(thousands[1])] + ' thousand, '
+				check += NUM_TO_STR[int(thousands)//10 * 10] + ' ' \
+					+ NUM_TO_STR[int(thousands[1])] + ' thousand, '
 			else:
-				check += numbers[int(thousands)] + ' thousand, '
+				check += NUM_TO_STR[int(thousands)] + ' thousand, '
 
 		elif thousands != '0': # at least one thousand
-			check += numbers[int(thousands)] + ' , and '
+			check += NUM_TO_STR[int(thousands)] + ' , and '
 
-		check += numbers[int(hundreds) // 100] + ' hundred '
+		check += NUM_TO_STR[int(hundreds) // 100] + ' hundred '
 		if int(hundreds[1:]) > 19: # determine tens and ones places
-			check += numbers[int(hundreds[1:])//10 * 10] + ' ' \
-					+ numbers[int(hundreds[2])] + ' dollars and '
+			check += NUM_TO_STR[int(hundreds[1:])//10 * 10] + ' ' \
+					+ NUM_TO_STR[int(hundreds[2])] + ' dollars and '
 		else:
-			check += numbers[int(hundreds[1:])] + ' dollars and '
+			check += NUM_TO_STR[int(hundreds[1:])] + ' dollars and '
 
 	else: # range of dollars = 0 - 99
 		if len(dollars) == 2:
 			if int(dollars) > 19:
-				check += numbers[int(dollars)//10 * 10] + ' ' \
-					+ numbers[int(dollars[0])] + ' dollars and '
+				check += NUM_TO_STR[int(dollars)//10 * 10] + ' ' \
+					+ NUM_TO_STR[int(dollars[0])] + ' dollars and '
 			else:
-				check += numbers[int(dollars)] + ' dollars and '
+				check += NUM_TO_STR[int(dollars)] + ' dollars and '
 
 		else:
-			check += numbers[int(dollars[0])] + ' dollars and '
+			check += NUM_TO_STR[int(dollars[0])] + ' dollars and '
 
 	if cents != '0':
 		if int(cents) > 19:
-			check += numbers[int(cents)//10 * 10] + ' ' \
-				+ numbers[int(cents[1])] + ' cents.'
+			check += NUM_TO_STR[int(cents)//10 * 10] + ' ' \
+				+ NUM_TO_STR[int(cents[1])] + ' cents.'
 		else:
-			check += numbers[int(cents)] + ' cents.'
+			check += NUM_TO_STR[int(cents)] + ' cents.'
 	else:
 		check += ' zero cents.'
 
