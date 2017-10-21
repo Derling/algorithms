@@ -5,8 +5,8 @@
 
 src = https://www.reddit.com/r/dailyprogrammer/comments/6yep7x/20170906_challenge_330_intermediate_check_writer/
 
-Given a dollar NUM_TO_STR between 0.00 and 999,999.00, create a program that 
-will provide a worded representation of a dollar NUM_TO_STR on a check.
+Given a dollar number between 0.00 and 999,999.00, create a program that 
+will provide a worded representation of a dollar number on a check.
 
 '''
 
