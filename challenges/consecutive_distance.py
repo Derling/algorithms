@@ -5,9 +5,19 @@
 
 src = https://www.reddit.com/r/dailyprogrammer/comments/759fha/20171009_challenge_335_easy_consecutive_distance/
 
+We'll call the consecutive distance rating of an integer sequence 
+the sum of the distances between consecutive integers. 
+Consider the sequence 1 7 2 11 8 34 3. 1 and 2 are consecutive 
+integers, but their distance apart in the sequence is 2. 
+2 and 3 are consecutive integers, and their distance is 4. 
+The distance between 7 and 8 is 3. The sum of these distances is 9.
+
+Your task is to find and display the consecutive distance rating of a 
+number of integer sequences.
+
 '''
 
-def consecutive_distance(integers, gap = 1):
+def consecutive_distance_rating(integers, gap = 1):
 	# gap bonus implemented
 	count = 0
 	for i in integers:
