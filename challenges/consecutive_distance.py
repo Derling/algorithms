@@ -17,7 +17,7 @@ number of integer sequences.
 
 '''
 
-def consecutive_distance_rating(integers, gap = 1):
+def consecutive_distance_rating_rating(integers, gap = 1):
 	# gap bonus implemented
 	count = 0
 	for i in integers:
