@@ -41,5 +41,5 @@ if __name__ == '__main__':
 		[6, 19, 45, 46, 7, 70, 36, 2, 56, 47, 33, 75, 
 			94, 50, 34, 35, 73, 72, 39, 5,],
 	]
-	for i, test in enumerate(tests):
+	for i, test in enumerate(challenge):
 		print('Challenge input {0} returned with a rating of {1}.'.format(i + 1, consecutive_distance(test)))
