@@ -14,7 +14,7 @@
 # ---------------------------------------------------------------
 
 def longest_non_repeat(string):
-    max_length = 0 # 
+    max_length = 0 
     
     for i, c in enumerate(string):
         
@@ -28,6 +28,28 @@ def longest_non_repeat(string):
         if len(sub_str) > max_length:
             max_length = len(sub_str)
             
+    return max_length
+
+def longest_substring(string):
+    i=0
+    max_length = 1
+
+    for i,c in enumerate(string):
+        
+        start_at = i
+        sub_str=[]
+
+        # continue increase sub string if did not repeat character         
+        while (start_at < len(string)) and (string[start_at] not in sub_str):
+            sub_str.append(string[start_at])
+            start_at = start_at + 1
+
+        # update the max length   
+        if len(sub_str) > max_length:
+            max_length = len(sub_str)
+
+        print(sub_str)
+        
     return max_length
 
 if __name__ == '__main__':
