@@ -8,9 +8,12 @@
 
 
 def merge_intervals(intervals):
-    merge = [intervals[0]]
+    ''' intervals are set '''
+    merge = [intervals[0]] # add first interval to merged array
     for i in intervals:
-        if i[0] in range(merge[-1][0], merge[-1][1]):
+        # check if starting number in current range is in the current range
+        if i[0] < merge[-1][1]:
+            # increase the range of the last range
             merge[-1][1] = i[-1]
         else:
             merge.append(i)
@@ -18,4 +21,5 @@ def merge_intervals(intervals):
 
 if __name__ == '__main__':
     print(merge_intervals(
-            [[1,3],[2,6],[5,10],[11,16],[15,18],[19,22]]))
+            [[1,3],[2,6],[5,10],[11,16],[15,18],[19,22]])
+    )
