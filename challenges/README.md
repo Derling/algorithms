@@ -1,3 +1,3 @@
 # challenges
 
-Collection of scripts I do to improve coding ability.
+Collection of coding challenges I do to improve coding ability.
