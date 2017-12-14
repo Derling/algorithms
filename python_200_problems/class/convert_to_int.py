@@ -17,18 +17,19 @@ Created on Thu Dec 14 17:50:01 2017
 # 4000                                                                                                          
 # 100
 
+values = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000
+        }
+
 class Numeral_Converter():
     def convert_to_int(self, roman_numeral):
         # hash table for the values of the individual roman numerals
-        values = {
-                'I': 1,
-                'V': 5,
-                'X': 10,
-                'L': 50,
-                'C': 100,
-                'D': 500,
-                'M': 1000
-                }
         total = 0
         
         for index, numeral in enumerate(roman_numeral):
@@ -58,7 +59,9 @@ class py_solution:
 if __name__ == '__main__':
     inputs = ['MMMCMLXXXVI',
               'MMMM',
-              'C']
+              'C',
+              'CD',
+              'D']
     class_ = Numeral_Converter()
     for i in inputs:
         print(class_.convert_to_int(i))
