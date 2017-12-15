@@ -57,11 +57,13 @@ class py_solution:
 
 
 if __name__ == '__main__':
-    inputs = ['MMMCMLXXXVI',
-              'MMMM',
-              'C',
-              'CD',
-              'D']
+    inputs = [
+            'MMMCMLXXXVI',
+            'MMMM',
+            'C',
+            'CD',
+            'D'
+            ]
     class_ = Numeral_Converter()
     for i in inputs:
         print(class_.convert_to_int(i))
