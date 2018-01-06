@@ -22,18 +22,13 @@ def garage(initial, final):
     while initial != final:
         if initial[current] != final[current]:
             empty_spot = initial.index(0)
-            # find where the current car belongs
             final_spot = initial.index(final[current])
             
-            # the spot for the current car is empty, only takes one step
             if final_spot == empty_spot:
                 initial[current], initial[empty_spot] = \
                     initial[empty_spot], initial[current]
                 steps = steps + 1
             
-            # the spot for the current car is not empty, two steps
-            # first step is to make room by moving the car thats there to the
-            # empty spot, then move the current car to the newly emptied spot
             else:
                 initial[current], initial[empty_spot] = \
                     initial[empty_spot], initial[current]
