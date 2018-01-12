@@ -9,9 +9,8 @@ the function must also remove consequitive characters as the result of eliminati
 
 def str_compress(string):
 	i, j = 0, 1
-	string = list(string)
 
-	def remove_sequence(i, n):
+	def remove_sequence(i, n): # removes a character that starts at index i and appears n times
 		while n:
 			string.pop(i)
 			n -= 1
@@ -34,7 +33,7 @@ def str_compress(string):
 def compress(string):
 	if len(string) < 3:
 		return string
-	return str_compress(string)
+	return str_compress(list(string))
 
 if __name__ == '__main__':
 	test = [
@@ -44,7 +43,7 @@ if __name__ == '__main__':
 		'aaaaaaaaaaaaa', # compresses to ""
 		'aaab', # compresses to "b"
 		'baaabb', # compresses to ""
-		'abccdddmmfffm'
+		'abccdddmmfffm' # compresses to "abcc"
 	]
 	for string in test:
 		print(f'\"{string}\" compresses to \"{compress(string)}\"')
