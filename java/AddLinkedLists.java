@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Collections;
-
 /*
 You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
 You may assume the two numbers do not contain any leading zero, except the number 0 itself.
@@ -49,34 +48,8 @@ public class AddLinkedLists {
 		System.out.print("second list: ");
 		printList(secondList);
 		
-		// ArrayList which will hold the sum of the decimal places
-		ArrayList<Integer> sum = new ArrayList<Integer>();
-		boolean carryOver = false;
-		while(firstList != null || secondList != null) {
-			int firstValue = 0; int secondValue = 0;
-			
-			if(firstList != null) {
-				firstValue = firstList.getValue();
-				firstList = firstList.getNext();
-			}
-			
-			if(secondList != null) {
-				secondValue = secondList.getValue();
-				secondList = secondList.getNext();
-			}
-			
-			int total = (carryOver) ? 1 + firstValue + secondValue : firstValue + secondValue; 
-			
-			if(total >= 10) {
-				sum.add(total % 10);
-				carryOver = true;
-			}
-			else {
-				sum.add(total);
-				carryOver = false;
-			}
-			
-		}
+		// add the two lists together
+		ArrayList<Integer> sum = addLists(firstList, secondList);
 		AddLinkedLists sumList = createList(sum);
 		
 		System.out.print("sum list structure: ");
@@ -115,6 +88,38 @@ public class AddLinkedLists {
 			list = list.getNext();
 		}
 		System.out.println();
+	}
+	
+	public static ArrayList<Integer> addLists(AddLinkedLists firstList, AddLinkedLists secondList) {
+		ArrayList<Integer> sum = new ArrayList<Integer>();
+		boolean carryOver = false;
+		while(firstList != null || secondList != null) {
+			int firstValue = 0; int secondValue = 0;
+			
+			if(firstList != null) {
+				firstValue = firstList.getValue();
+				firstList = firstList.getNext();
+			}
+			
+			if(secondList != null) {
+				secondValue = secondList.getValue();
+				secondList = secondList.getNext();
+			}
+			
+			// assuming node only holds single digit values
+			int total = (carryOver) ? 1 + firstValue + secondValue : firstValue + secondValue; 
+			
+			if(total >= 10) {
+				sum.add(total % 10);
+				carryOver = true;
+			}
+			else {
+				sum.add(total);
+				carryOver = false;
+			}
+			
+		}
+		return sum;
 	}
 
 }
