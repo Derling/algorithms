@@ -10,47 +10,25 @@ Explanation: 342 + 465 = 807.
 */
 
 public class AddLinkedLists {
-	public int value;
-	private AddLinkedLists next;
-		
-	public AddLinkedLists(int value) {
-		this.value = value;
-	}
-
-	public int getValue() {
-		return this.value;
-	}
-		
-	public AddLinkedLists getNext() {
-		return this.next;
-	}
-		
-	public void setNext(AddLinkedLists node) {
-		this.next = node;
-	}
-	
-	public boolean hasNext() {
-		return this.next != null;
-	}
 	
 	public static void main(String[] args) {
 		// create first list 2 -> 4 -> 3 which represents the number 342
-		AddLinkedLists firstList = new AddLinkedLists(2);
-		firstList.setNext(new AddLinkedLists(4));
-		firstList.getNext().setNext(new AddLinkedLists(3));
+		Node firstList = new Node(2);
+		firstList.setNext(new Node(4));
+		firstList.getNext().setNext(new Node(3));
 		System.out.print("first list: ");
 		printList(firstList);
 		
 		//create second list 5 -> 6 -> 4 which represents the number 465
-		AddLinkedLists secondList = new AddLinkedLists(5);
-		secondList.setNext(new AddLinkedLists(6));
-		secondList.getNext().setNext(new AddLinkedLists(4));
+		Node secondList = new Node(5);
+		secondList.setNext(new Node(6));
+		secondList.getNext().setNext(new Node(4));
 		System.out.print("second list: ");
 		printList(secondList);
 		
 		// add the two lists together
 		ArrayList<Integer> sum = addLists(firstList, secondList);
-		AddLinkedLists sumList = createList(sum);
+		Node sumList = createList(sum);
 		
 		System.out.print("sum list structure: ");
 		printList(sumList);
@@ -69,17 +47,17 @@ public class AddLinkedLists {
 		return builder.toString();
 	}
 	
-	public static AddLinkedLists createList(ArrayList<Integer> aList) {
-		AddLinkedLists list = new AddLinkedLists(0);
-		AddLinkedLists dummyNode = list; // dummy will be used to return the actual head
+	public static Node createList(ArrayList<Integer> aList) {
+		Node list = new Node(0);
+		Node dummyNode = list; // dummy will be used to return the actual head
 		for(int i : aList) {
-			list.setNext(new AddLinkedLists(i));
+			list.setNext(new Node(i));
 			list = list.getNext();
 		}
 		return dummyNode.getNext();
 	}
 	
-	public static void printList(AddLinkedLists list) {
+	public static void printList(Node list) {
 		while(list != null) {
 			System.out.print(list.value + " ");
 			if(list.hasNext()) {
@@ -90,7 +68,7 @@ public class AddLinkedLists {
 		System.out.println();
 	}
 	
-	public static ArrayList<Integer> addLists(AddLinkedLists firstList, AddLinkedLists secondList) {
+	public static ArrayList<Integer> addLists(Node firstList, Node secondList) {
 		ArrayList<Integer> sum = new ArrayList<Integer>();
 		boolean carryOver = false;
 		while(firstList != null || secondList != null) {
@@ -124,3 +102,27 @@ public class AddLinkedLists {
 
 }
 
+class Node {
+	public int value;
+	private Node next;
+		
+	public Node(int value) {
+		this.value = value;
+	}
+
+	public int getValue() {
+		return this.value;
+	}
+		
+	public Node getNext() {
+		return this.next;
+	}
+		
+	public void setNext(Node node) {
+		this.next = node;
+	}
+	
+	public boolean hasNext() {
+		return this.next != null;
+	}
+}
