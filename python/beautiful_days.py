@@ -7,21 +7,34 @@ Input is one line describing i,j,k each seperated by a space not commas.
 The set is the numbers between i and j, inclusive. 
 The output is the number of "Beautiful Days".
 7/6/17 challenge.
-''''
+'''
 
-def main():
-    i,j,k = getInput()
-    beautiful_days = getDays(i,j,k)
-    print(beautiful_days)
-def getInput():
-    return map(int,input().split())
-def getDays(i,j,k):
+def get_reverse(day):
+    '''
+    type day: int
+    rtype: int
+    '''
+    return int(str(day)[::-1])
+
+def beautiful_days(lower, upper, divisor):
+    '''
+    type lower: int
+    type upper: int
+    type divisor: int
+    rtype: int
+    '''
     count = 0
-    for day in range(i,j+1):    
-        if abs(day-getReverse(day))%k == 0:
+    for day in range(lower, upper + 1):
+        difference = day - get_reverse(day)
+        if difference % divisor == 0:
             count += 1
     return count
-def getReverse(integer):
-    return int(str(integer)[::-1])
+
 if __name__ == '__main__': 
-    main()
+    tests = [
+        [20, 30, 2],
+        [20, 30, 3],
+        [20, 30, 4]
+    ]
+    for i in tests:
+        print(beautiful_days(*i))
