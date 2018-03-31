@@ -9,17 +9,22 @@ Output: 369485271
 """
 
 def circular_counter(array, steps=1):
+    '''
+    type array: int[]
+    type steps: int
+    '''
     # generator function that gets the ith element and removes it from 
     # the array and circles back around until there are no elements
-    steps = steps- 1 # list index start at 0
+    steps = steps - 1
     index = 0
     length = len(array)
     while array:
         index = (steps + index) % length
         yield array.pop(index)
-        length = length - 1
+        length -= 1
 
 if __name__ == '__main__':
     array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     for i in circular_counter(array, 3):
-        print(i, end='')
+        print(i, end='') # 369485271
+    print()
