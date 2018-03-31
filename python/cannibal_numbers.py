@@ -11,7 +11,12 @@ src: https://www.reddit.com/r/dailyprogrammer/comments/76qk58/20171016_challenge
 """
 
 def cannibal_number(array, query):
-    ''' recursive solution ''' 
+    ''' 
+        recursive solution 
+    type array: int[]
+    type query: int
+    rtype: int
+    ''' 
     def recursion(array, query):
         if not array: # empty array
             return 0
@@ -26,41 +31,46 @@ def cannibal_number(array, query):
                 array[-1] = array[-1] + 1
                 array.pop(0)
                 return 0 + cannibal_number(array, query)
+
     return recursion(sorted(array), query)
 
 def cannibal_numbers(array, query): 
-    ''' iterative solution ''' 
+    ''' 
+        iterative solution 
+    type array: int[]
+    type query: int
+    rtype: int
+    ''' 
     if not array: # empty array
         return 0
     if len(array) == 1: # one element in array
         return 1 if array[0] >= query else 0
     cannibals = 0
     array = sorted(array)
-    for i in range(len(array)):
-        if not array: # array is empty because of loop so we should break
-            break
-        elif array[-1] >= query:
+    while array:
+        if array[-1] >= query:
             # highest element meets criteria, remove it and increment count
             cannibals += 1
             array.pop()
         else:
-            # highest integer less than query, increment it and remove smallest
+            # highest integer less than query, increase value and remove smallest
             array[-1] = array[-1] + 1
             array.pop(0)
     return cannibals
 
 
 if __name__ == '__main__':
-    int_set = [int(i) for i in input('Enter the sacrifices:\n').split()]
-    queries = [int(i) for i in input('Enter the queries:\n').split()]
-    results = [[], []]
+    int_set = [21, 9, 5, 8, 10, 1, 3]
+    queries = 10, 15
+    
+    for i in queries:
+        print(cannibal_number(int_set.copy(), i))
 
-    for c in queries:
-        results[0].append(cannibal_number(int_set.copy(), c))
-        results[1].append(cannibal_numbers(int_set.copy(), c))
-
-    if results[0] == results[1]: # functions produce same results
-        print('For the quieres of', queries, 'using the integers', int_set,
-              ', the results were,', results[0])
-    else:
-        print('error with functions') 
+'''
+both solutions require the array to be sorted
+this makes the algorithm work really nicely
+if the strongest integers are in the back
+all they have to do is feast on the weaker ones
+if the array is sorted the weaker ones are at the beginning of the array
+*** not optimized for space *** 
+'''
