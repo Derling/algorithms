@@ -17,6 +17,7 @@ def bubble_sort(array):
                 array[i] = array[i - 1]
                 array[i - 1] = temp
                 swapped = True
+        print(array)
     return array
 
 def solution(nlist):

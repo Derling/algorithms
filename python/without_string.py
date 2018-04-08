@@ -7,16 +7,16 @@ withoutString("Hello there", "x") → "Hello there"
 '''
 
 def without_string(base, remove):
-    # case insensitive comparisons, so i validate in lower case
     new_string = []
     str_index = 0
-    first_char = remove[0].lower()
+    first_char = remove[0]
+
     while str_index < len(base):
-        char = base[str_index].lower()
+        char = base[str_index]
         if char == first_char:
             sub_range = str_index + len(remove)
-            sub = base[str_index: sub_range].lower()
-            if sub != remove.lower():
+            sub = base[str_index: sub_range]
+            if sub != remove:
                 new_string.extend(sub)
             str_index = sub_range
         else:
