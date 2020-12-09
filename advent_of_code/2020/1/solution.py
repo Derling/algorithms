@@ -5,7 +5,7 @@ from typing import List
 def solution_part1(expense_report: List[int], needed_sum: int = 2020) -> int:
     report_set = set(expense_report)
     for entry in report_set:
-        if (other_entry := abs(entry - needed_sum)) in report_set:
+        if (other_entry := needed_sum - entry) in report_set:
             return entry * other_entry
     return None
 
