@@ -19,8 +19,6 @@ def solution_part2(expense_report: List[int], needed_sum: int = 2020) -> int:
                 continue
             current_sum = entry1 + entry2
             if((entry3 := needed_sum - current_sum) in report_set):
-                print(entry1, entry2, entry3)
-                print(entry1 + entry2 + entry3)
                 return entry1 * entry2 * entry3
 
     return None
