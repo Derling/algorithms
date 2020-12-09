@@ -28,11 +28,11 @@ if __name__ == '__main__':
     input_path = os.path.join(os.path.dirname(__file__), 'input.txt')
     with open(input_path) as f:
         input_list = list(map(int, f.readlines()))
-        
+
         result = solution_part1(input_list)
         if result:
             print(f'part 1 answer is {result}')
-        
+
         result = solution_part2(input_list)
         if result:
             print(f'part 2 answer is {result}')
