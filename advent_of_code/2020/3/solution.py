@@ -1,7 +1,7 @@
 from typing import List
 
 
-def solution(tree_grid: List[List[str]], slope: tuple = (3, 1)):
+def solution(tree_grid: List[List[str]], slope: tuple = (3, 1)) -> int:
     encounters = 0
     current_x, current_y = 0, 0
     grid_length = len(tree_grid[0])
