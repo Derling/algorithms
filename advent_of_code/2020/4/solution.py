@@ -3,8 +3,6 @@ from typing import List, Mapping
 PASSPORT_KEYS = {'byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'}  # 'cid' is optional so just exclude it from the set
 
 def is_valid_passport(passport_creds: Mapping[str, str]) -> bool:
-    print(set(passport_creds.keys()))
-    print(not PASSPORT_KEYS - set(passport_creds.keys()))
     return not PASSPORT_KEYS - set(passport_creds.keys())
 
 
