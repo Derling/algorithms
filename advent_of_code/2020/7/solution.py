@@ -19,18 +19,27 @@ def get_rules_map(bag_rules: List[str]) -> BagRulesMap:
     return bags
 
 
-def search(bags: BagRulesMap, color: str) -> int:
+def search1(bags: BagRulesMap, color: str) -> int:
     container_bags = set()
     for bag in bags:
         if color in bags[bag]:
             container_bags.add(bag)
-            container_bags.update(search(bags, bag))
+            container_bags.update(search1(bags, bag))
     return container_bags
 
-def solution(bag_rules: List[str]) -> int:
+
+def search2(bags: BagRulesMap, color: str) -> int:
+    count = 1
+    for bag in bags[color]:
+        multiplier = bags[color][bag]
+        count += multiplier * search2(bags, bag)
+    return count
+
+def solution(bag_rules: List[str], search_func: callable) -> int:
     rules = get_rules_map(bag_rules)
-    container_bags = search(rules, 'shiny gold')
-    return len(container_bags)
+    search_results = search_func(rules, 'shiny gold')
+    # subtract 1 from search2 to exclude the base bag itself
+    return search_results - 1 if search_func == search2 else len(search_results)
 
 
 if __name__ == '__main__':
@@ -39,5 +48,7 @@ if __name__ == '__main__':
 
     with open(fpath) as f:
         input_list = f.readlines()
-        result = solution(input_list)
+        result = solution(input_list, search1)
         print(f'part 1 answer is {result}')
+
+        print(solution(input_list, search2))
